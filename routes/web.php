@@ -14,3 +14,5 @@ Route::get('/about', function () {
       ->with("description", $description)
       ->with("author", $author);
 })->name("home.about");
+
+Route::get('/contact', 'App\Http\Controllers\ContactController@index')->name("home.contact");
