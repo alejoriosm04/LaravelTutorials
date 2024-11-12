@@ -12,12 +12,14 @@ class ProductApiController extends Controller
     public function index(): JsonResponse
     {
         $products = Product::all();
+
         return response()->json($products, 200);
     }
 
     public function show(string $id): JsonResponse
     {
         $product = Product::findOrFail($id);
+
         return response()->json($product, 200);
     }
 
@@ -25,13 +27,13 @@ class ProductApiController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'price' => 'required|numeric'
+            'price' => 'required|numeric',
         ]);
-        $product = Product::create(request()->only(["name","price"]));
+        $product = Product::create(request()->only(['name', 'price']));
 
         return response()->json([
             'message' => 'Product created successfully!',
-            'product' => $product
+            'product' => $product,
         ], 201);
     }
 }
