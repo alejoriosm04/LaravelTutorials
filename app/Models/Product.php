@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Comment;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Collection;
-
 
 class Product extends Model
 {
@@ -19,9 +17,8 @@ class Product extends Model
      * $this->attributes['name'] - string - contains the product name
      * $this->attributes['price'] - int - contains the product price
      * $this->comments - Comment[] - contains the associated comments
-    */
-
-    protected $fillable = ['name','price'];
+     */
+    protected $fillable = ['name', 'price'];
 
     public static function validate(Request $request): void
     {
@@ -36,7 +33,7 @@ class Product extends Model
         return $this->attributes['id'];
     }
 
-    public function setId($id) : void
+    public function setId($id): void
     {
         $this->attributes['id'] = $id;
     }
@@ -46,7 +43,7 @@ class Product extends Model
         return $this->attributes['name'];
     }
 
-    public function setName($name) : void
+    public function setName($name): void
     {
         $this->attributes['name'] = $name;
     }
@@ -56,7 +53,7 @@ class Product extends Model
         return $this->attributes['price'];
     }
 
-    public function setPrice($price) : void
+    public function setPrice($price): void
     {
         $this->attributes['price'] = $price;
     }
